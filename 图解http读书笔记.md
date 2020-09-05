@@ -70,13 +70,13 @@
 
 2. 响应报文由协议版本、状态码、状态码的原因短语、响应首部字段（可选）和实体主体（可选）
 
-   ![截屏2020-09-02 下午3.52.54](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/6.png)
+   ![截屏2020-09-02 下午3.52.54](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/7.png)
 
 3. HTTP是一种无状态（stateless）协议，即HTTP协议自身不对请求和响应的通信状态进行保存，因此引入了Cookie技术
 
 4. 使用URI定位资源的方法：在请求报文中包含URI
 
-   ![截屏2020-09-02 下午3.54.33](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/7.png)
+   ![截屏2020-09-02 下午3.54.33](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/8.png)
 
 5. HTTP方法：
 
@@ -88,13 +88,13 @@
 
    - HEAD：只获得报文首部；
 
-     ![截屏2020-09-02 下午4.01.46](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/8.png)
+     ![截屏2020-09-02 下午4.01.46](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/9.png)
 
    - DELETE：删除文件（一般不使用，有安全隐患）；
 
    - OPTION：询问支持的方法，查询针对请求URI指定的资源支持的方法；
 
-     ![截屏2020-09-02 下午4.02.05](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/9.png)
+     ![截屏2020-09-02 下午4.02.05](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/10.png)
 
    - TRACE：追踪路径（不常用）
 
@@ -102,21 +102,21 @@
 
      CONNECT代理服务器名：端口号HTTP版本
 
-     ![截屏2020-09-02 下午4.04.36](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/10.png)
+     ![截屏2020-09-02 下午4.04.36](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/11.png)
 
 6. 在HTTP协议初期，每进行一次HTTP通信就要断开TCP连接，这增加了通信开销，为解决上述问题提出了持久连接，只要任意一端没用明确断开连接，则保持TCP连接状态
 
-   ![截屏2020-09-02 下午4.18.22](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/11.png)
+   ![截屏2020-09-02 下午4.18.22](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/12.png)
 
    管线化（pipelining）是指同时并行发送多个请求，而不需要一个接一个等待响应
 
-   ![截屏2020-09-02 下午4.19.45](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/12.png)
+   ![截屏2020-09-02 下午4.19.45](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/13.png)
 
 7. 使用Cookie（曲奇）进行状态管理：
 
    - Cookie技术是指在请求和响应报文中写入Cookie信息来控制客户端的状态
 
-   - Cookie会根据服务端发送的响应报文内的一个叫做Set-Cookie的首部字段信息，通知客户端保存Cookie，当下次客户端再往该服务器发送请求时，客户端会自动在请求报文中加入Cookie值后发送出去![截屏2020-09-02 下午4.27.50](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/13.png)
+   - Cookie会根据服务端发送的响应报文内的一个叫做Set-Cookie的首部字段信息，通知客户端保存Cookie，当下次客户端再往该服务器发送请求时，客户端会自动在请求报文中加入Cookie值后发送出去![截屏2020-09-02 下午4.27.50](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/14.png)
 
 ## 三、HTTP报文内的HTTP信息
 
@@ -126,7 +126,7 @@
 
    首部字段一般为：通用首部、请求首部、响应首部和实体首部
 
-   ![截屏2020-09-02 下午7.38.21](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/14.png)
+   ![截屏2020-09-02 下午7.38.21](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/15.png)
 
 3. 报文主体和实体主体存在差异：通常报文主体等于实体主体，只有当传输中进行编码操作时，实体主体的内容发送变化，才与报文主体存在差异。
 
@@ -134,13 +134,13 @@
 
    常见的内容编码方式：gzip（GNU zip）、compress（UNIX系统的标准压缩）、deflate（zlib）、identity（不进行编码）
 
-   ![截屏2020-09-02 下午8.08.58](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/15.png)
+   ![截屏2020-09-02 下午8.08.58](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/16.png)
 
 5. 分块传输编码（Chunked Transfer Coding）：在传呼大容量数据时，通过把数据分割成多块让浏览器逐步显示页面。
 
 6. 获取部分内容的范围请求：即指定下载的实体范围
 
-   ![截屏2020-09-02 下午8.20.08](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/16.png)
+   ![截屏2020-09-02 下午8.20.08](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/17.png)
 
 7. 内容协商（Content Negotiation）返回最合适的内容，以下字段作为判断的基准：
 
@@ -162,7 +162,7 @@
 
 2. 状态码的类别：
 
-   ![截屏2020-09-02 下午8.37.04](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/17.png)
+   ![截屏2020-09-02 下午8.37.04](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/18.png)
 
    几个常用的状态码：
 
@@ -230,13 +230,13 @@ web服务器可以搭建多个独立域名的Web网站，也可以作为通信�
 
    因此需要在发送HTTP请求时，必须在Host首部内完整指定主机名或域名的URI
 
-   ![截屏2020-09-03 下午6.46.32](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/18.png)
+   ![截屏2020-09-03 下午6.46.32](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/19.png)
 
 2. 在HTTP通信时，除了客户端和服务器之外，还有一些用于通信数据转发的应用程序，例如代理、网关和隧道。
 
    - 代理：是一种有转发功能的应用程序，扮演了位于服务端和客户端中间人的角色
 
-     ![截屏2020-09-03 下午7.33.13](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/19.png)
+     ![截屏2020-09-03 下午7.33.13](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/20.png)
 
      每次通过代理服务器转发请求或响应时，会追加Via首部信息
 
@@ -256,19 +256,19 @@ web服务器可以搭建多个独立域名的Web网站，也可以作为通信�
 
      网关的工作机制和代理十分相似，而网关能使通信线路上的服务器提供非HTTP协议服务
 
-     ![截屏2020-09-03 下午7.31.22](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/20.png)
+     ![截屏2020-09-03 下午7.31.22](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/21.png)
 
    - 隧道：是在相隔甚远的客户端和服务器之间进行中转并保持双方通信连接的应用程序
 
      使用SS了等加密手段进行通信，为确保客户端与服务器之间进行安全通信
 
-     ![截屏2020-09-03 下午7.32.53](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/21.png)
+     ![截屏2020-09-03 下午7.32.53](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/22.png)
 
 3. 缓存：是指代理服务器或客户端本地磁盘内保存的资源副本，利用缓存可以减少对源服务器的访问，因此节省了通信流量和通信时间
 
    - 缓存服务器是代理服务器的一种，流程如下：
 
-   ![截屏2020-09-03 下午7.49.02](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/22.png)
+   ![截屏2020-09-03 下午7.49.02](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/23.png)
 
    - 缓存具有一定的有效期限
    - 客户端的缓存被称为临时网络文件（Temporary Internet File）
@@ -277,11 +277,11 @@ web服务器可以搭建多个独立域名的Web网站，也可以作为通信�
 
 1. HTTP请求报文
 
-![截屏2020-09-03 下午7.54.10](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/23.png)
+![截屏2020-09-03 下午7.54.10](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/24.png)
 
 2. HTTP响应报文
 
-![截屏2020-09-03 下午7.54.51](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/24.png)
+![截屏2020-09-03 下午7.54.51](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/25.png)
 
 3. 4种HTTP首部字段类型
    - 通用首部字段（General Header Fields）：请求和响应报文都会使用
@@ -291,13 +291,13 @@ web服务器可以搭建多个独立域名的Web网站，也可以作为通信�
 
 4. 常见的首部字段
 
-   ![截屏2020-09-03 下午8.00.10](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/25.png)
+   ![截屏2020-09-03 下午8.00.10](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/26.png)
 
-   ![截屏2020-09-03 下午8.00.23](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/26.png)
+   ![截屏2020-09-03 下午8.00.23](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/27.png)
 
-   ![截屏2020-09-03 下午8.00.36](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/27.png)
+   ![截屏2020-09-03 下午8.00.36](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/28.png)
 
-   ![截屏2020-09-03 下午8.00.59](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/28.png)
+   ![截屏2020-09-03 下午8.00.59](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/29.png)
 
 5. HTTP首部字段将定义成缓存代理和非缓存代理的行为，分为两类：
 
@@ -326,17 +326,17 @@ web服务器可以搭建多个独立域名的Web网站，也可以作为通信�
 
      Cache-Control指令一览：
 
-     ![截屏2020-09-04 上午9.36.09](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/29.png)
+     ![截屏2020-09-04 上午9.36.09](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/30.png)
 
-     ![截屏2020-09-04 上午9.36.19](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/30.png)
+     ![截屏2020-09-04 上午9.36.19](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/31.png)
 
    - Connection：
 
      （1）控制不再转发给代理的首部字段
 
-     ![截屏2020-09-04 上午9.40.35](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/31.png)
+     ![截屏2020-09-04 上午9.40.35](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/32.png)
 
-     （2）管理持久连接![截屏2020-09-04 上午9.52.52](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/32.png)
+     （2）管理持久连接![截屏2020-09-04 上午9.52.52](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/33.png)
 
    - Date：表明创建HTTP报文的日期和时间
 
@@ -344,21 +344,21 @@ web服务器可以搭建多个独立域名的Web网站，也可以作为通信�
 
    - Upgrade：用于检测HTTP协议及其他协议是否可使用更高版本进行通信，该参数可以用来指定一个完全不同的通信协议
 
-     ![截屏2020-09-04 上午10.03.19](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/33.png)
+     ![截屏2020-09-04 上午10.03.19](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/34.png)
 
    - Via：追踪客户端与服务器之间的请求和响应报文的传输路径
 
-     ![截屏2020-09-04 上午10.04.03](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/34.png)
+     ![截屏2020-09-04 上午10.04.03](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/35.png)
 
    - Warning：提示用户一些与缓存相关的问题警告
 
-     ![截屏2020-09-04 上午10.04.51](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/35.png)
+     ![截屏2020-09-04 上午10.04.51](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/36.png)
 
 7. 请求首部字段：从客户端往服务器端发送请求报文所使用的字段
 
    - Accept：可通知服务器，用户代理能够处理的媒体类型及媒体类型的相对优先级
 
-     ![截屏2020-09-05 下午8.04.20](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/36.png)
+     ![截屏2020-09-05 下午8.04.20](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/37.png)
 
    - Accept-Charset：可用来通知服务器用户代理支持的字符集及字符集的相对优先顺序，可一次性指定多种字符集，该首部字段应用于内容协商机制的服务器驱动协商
 
@@ -427,11 +427,11 @@ web服务器可以搭建多个独立域名的Web网站，也可以作为通信�
 
 10. 为Cookie服务的首部字段：
 
-    ![截屏2020-09-05 下午7.48.48](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/37.png)
+    ![截屏2020-09-05 下午7.48.48](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/38.png)
 
     - Set-Cookie：当服务器准备开始管理客户端状态时，会事先告知各种信息
 
-      ![截屏2020-09-05 下午7.50.42](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/38.png)
+      ![截屏2020-09-05 下午7.50.42](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/39.png)
 
     - Cookie：首部字段Cookie会告知服务器，会在请求中包含从服务器接受到的Cookie
 
@@ -452,17 +452,17 @@ web服务器可以搭建多个独立域名的Web网站，也可以作为通信�
 
   - 通信加密：SSL（Secure Socket Layer）和TLS（Transport LayerSecurity），用SSL建立安全通信线路之后，就可以在这条线路上进行HTTP通信，与SSL组合使用的HTTP被称为HTTPS
 
-    ![截屏2020-09-05 下午2.50.31](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/39.png)
+    ![截屏2020-09-05 下午2.50.31](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/40.png)
 
   - 内容加密：为了做到有效的内容加密，要求客户端和服务器同时具有加密和解密机制，但仍有被篡改的风险
 
-    ![截屏2020-09-05 下午2.53.59](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/40.png)
+    ![截屏2020-09-05 下午2.53.59](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/41.png)
 
 - 不验证通信方的身份，因此有可能遭遇伪装
 
   使用SSL不仅提供加密处理，还使用了一种被称为证书的手段，可用于确认双方
 
-  ![截屏2020-09-05 下午2.55.50](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/41.png)
+  ![截屏2020-09-05 下午2.55.50](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/42.png)
 
 - 无法证明报文的完整性，所以有可能已遭篡改
 
@@ -470,29 +470,29 @@ web服务器可以搭建多个独立域名的Web网站，也可以作为通信�
 
 2. HTTPS=HTTP+加密+认证+完整性保护
 
-   ![截屏2020-09-05 下午3.00.57](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/42.png)
+   ![截屏2020-09-05 下午3.00.57](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/43.png)
 
    HTTPS（HTTP Secure）是身披SSL外壳的HTTP，并不是一种新协议，只是HTTP通信接口部分用SSL和TLS协议代替。当使用SSL时，演变为HTTP先与SSL通信，再由SSL和TCP进行通信
 
-   ![截屏2020-09-05 下午3.03.37](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/43.png)
+   ![截屏2020-09-05 下午3.03.37](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/44.png)
 
 3. 共享密钥（对称密钥）：加密密钥和解密密钥相同，这种方式被称为共享密钥
 
-   ![截屏2020-09-05 下午3.07.58](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/44.png)
+   ![截屏2020-09-05 下午3.07.58](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/45.png)
 
    公开密钥加密（公钥密码体系）：使用一对非对称密钥，分别为私有密钥和公开密钥；公开密钥进行加密，使用私有密钥进行解密
 
-   ![截屏2020-09-05 下午3.11.31](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/45.png)
+   ![截屏2020-09-05 下午3.11.31](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/46.png)
 
 4. HTTPS采用混合加密机制：在交换密钥环节使用公开密钥加密方式，之后建立通信报文阶段使用共享密钥加密
 
-   ![截屏2020-09-05 下午3.15.38](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/46.png)
+   ![截屏2020-09-05 下午3.15.38](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/47.png)
 
 5. 证明公开密钥正确性的证书
 
    公开密钥加密存在一些问题，即无法证明公开密钥本身就是货真价实的公开密钥，为解决这个问题，我们使用数字证书认证机构颁发的公开密钥证书
 
-   ![截屏2020-09-05 下午3.19.11](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/47.png)
+   ![截屏2020-09-05 下午3.19.11](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/48.png)
 
 ## 八、确认访问用户身份的认证
 
@@ -504,11 +504,11 @@ web服务器可以搭建多个独立域名的Web网站，也可以作为通信�
 
    - DIGEST认证（摘要认证）：采用质询响应方式
 
-     ![截屏2020-09-05 下午3.25.18](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/48.png)
+     ![截屏2020-09-05 下午3.25.18](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/49.png)
 
    - SSL客户端认证：验证是否是已登陆的客户端
 
-   - FormBase认证（基于表单认证）：BASIC和DIGEST认证不怎么使用，SSL客户端由于费用问题无法普及，FormBase最常用的认证方法，一般采用Cookie来管理Session（会话）![截屏2020-09-05 下午3.30.02](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/49.png)
+   - FormBase认证（基于表单认证）：BASIC和DIGEST认证不怎么使用，SSL客户端由于费用问题无法普及，FormBase最常用的认证方法，一般采用Cookie来管理Session（会话）![截屏2020-09-05 下午3.30.02](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/50.png)
 
 ## 九、基于HTTP的功能追加协议
 
@@ -516,11 +516,11 @@ web服务器可以搭建多个独立域名的Web网站，也可以作为通信�
 
    Ajax核心技术是XMLHttpRequest的API，通过JavaScript脚本语言调用和服务器进行HTTP通信，借助这种手段就能从加载完毕的Web页面上发起请求，只更新局部页面，但仍然有大量请求产生
 
-   ![截屏2020-09-05 下午3.42.32](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/50.png)
+   ![截屏2020-09-05 下午3.42.32](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/51.png)
 
 2. Comet：一旦服务端有内容更新，直接给客户端返回响应，但一次连接的持续时间变长了，维持连接消耗了更多资源
 
-   ![截屏2020-09-05 下午3.45.19](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/51.png)
+   ![截屏2020-09-05 下午3.45.19](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/52.png)
 
 3. SPDY在TCP/IP的应用层和传输层之间新加会话层，额外获得了以下功能：
 
@@ -541,17 +541,17 @@ web服务器可以搭建多个独立域名的Web网站，也可以作为通信�
 
    - 握手请求：需要用到HTTP的Upgrade首部字段，告知服务器通信协议发生改变，以达到握手的目的
 
-     ![截屏2020-09-05 下午7.25.55](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/52.png)
+     ![截屏2020-09-05 下午7.25.55](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/53.png)
 
    - 握手响应：对于之前的请求，返回状态码101 Switching Protocols的响应
 
-     ![截屏2020-09-05 下午7.26.56](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/53.png)
+     ![截屏2020-09-05 下午7.26.56](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/54.png)
 
      Sec-WebSocket-Accept的字段值是由握手请求中的Sec-WebSocket-Key的字段值生成的
 
      成功握手确立WebSocket连接之后，通信时不再使用HTTP的数据帧，而采用WebSocket独立的数据帧
 
-     ![截屏2020-09-05 下午7.27.52](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/54.png)
+     ![截屏2020-09-05 下午7.27.52](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/55.png)
 
 ## 十、构建Web内容的技术
 
@@ -577,7 +577,7 @@ web服务器可以搭建多个独立域名的Web网站，也可以作为通信�
 
      代表：跨站脚本攻击、跨站点请求伪造
 
-     ![截屏2020-09-05 下午6.24.53](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/55.png)
+     ![截屏2020-09-05 下午6.24.53](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/56.png)
 
 3. 因输出值转义不完全引发的安全漏洞
 
@@ -587,7 +587,7 @@ web服务器可以搭建多个独立域名的Web网站，也可以作为通信�
 
    - 服务端验证：包括输入值验证、输出值转义
 
-     ![截屏2020-09-05 下午6.30.12](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/56.png)
+     ![截屏2020-09-05 下午6.30.12](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/57.png)
 
      当输出值转义不完全时，会因触发攻击者传入的攻击代码，而给输出对象带来损害
 
@@ -661,7 +661,7 @@ web服务器可以搭建多个独立域名的Web网站，也可以作为通信�
 
       是指攻击者通过某种手段拿到了用户的会话ID，并非法使用此会话ID伪装成用户，达到攻击的目的
 
-      ![截屏2020-09-05 下午7.07.02](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/57.png)
+      ![截屏2020-09-05 下午7.07.02](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/58.png)
 
       以下为几种可能获得会话ID的途径：
 
@@ -673,7 +673,7 @@ web服务器可以搭建多个独立域名的Web网站，也可以作为通信�
 
       会话固定攻击会强制用户使用攻击者指定的会话ID，属于被动攻击
 
-      ![截屏2020-09-05 下午7.11.10](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/58.png)
+      ![截屏2020-09-05 下午7.11.10](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/59.png)
 
    3. 跨站点请求伪造（Cross-Site Request Forgeries，CSRF）
 
@@ -691,7 +691,7 @@ web服务器可以搭建多个独立域名的Web网站，也可以作为通信�
 
       - 对已加密密码的破解：攻击者得到密码也需要解密还原成明文
 
-        ![截屏2020-09-05 下午7.20.47](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/59.png)
+        ![截屏2020-09-05 下午7.20.47](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/60.png)
 
         通常有以下几种方法：穷举法、字段攻击、彩虹表、拿到密钥、加密算法的漏洞
 
