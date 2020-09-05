@@ -24,7 +24,7 @@
 
    发送端从上往下每通过一层就增加首部，接收端从下往上每通过一层就删除首部
 
-   ![截屏2020-09-02 下午3.08.46](/Users/dylan/Library/Application Support/typora-user-images/截屏2020-09-02 下午3.08.46.png)
+   ![1](https://github.com/baolk/HTTP-protocol/blob/master/%E5%9B%BE%E8%A7%A3http-images/1.png)
 
 3. IP、TCP和DNS概念
 
